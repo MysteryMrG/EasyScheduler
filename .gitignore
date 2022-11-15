@@ -7,3 +7,9 @@
 /EasyScheduler/bin
 /EasyScheduler.SqlServer/bin
 /EasyScheduler.SqlServer/obj
+/EasySchedulerFramework.Sample/bin
+/EasySchedulerFramework.Sample/obj
+/EasySchedulerNetCore.Sample/bin
+/EasySchedulerNetCore.Sample/obj
+/packages
+
