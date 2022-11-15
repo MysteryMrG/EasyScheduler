@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/EasyScheduler/v16
+/EasyScheduler/obj
+/EasyScheduler/bin
+/EasyScheduler.SqlServer/bin
+/EasyScheduler.SqlServer/obj
