@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Ioc\" />
     <Folder Include="Models\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Internal\" />
