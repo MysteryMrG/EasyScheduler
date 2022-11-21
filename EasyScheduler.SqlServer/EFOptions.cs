@@ -11,9 +11,5 @@ namespace EasyScheduler.SqlServer
         /// </summary>
         public string Schema { get; set; } = DefaultSchema;
 
-        /// <summary>
-        /// EF dbcontext type.
-        /// </summary>
-        internal Type DbContextType { get; set; }
     }
 }

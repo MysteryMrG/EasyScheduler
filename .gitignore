@@ -13,3 +13,9 @@
 /EasySchedulerNetCore.Sample/obj
 /packages
 
+/EasyScheduler.InMemory/obj
+/EasyScheduler.MySql/obj
+/EasyScheduler.Redis/obj
+/EasyScheduler.InMemory/bin
+/EasyScheduler.MySql/bin
+/EasyScheduler.Redis/bin
