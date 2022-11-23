@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace EasyScheduler
 {
@@ -8,6 +9,6 @@ namespace EasyScheduler
         /// 初始化
         /// </summary>
         /// <returns></returns>
-        Task BootstrapAsync();
+        Task BootstrapAsync(CancellationToken stoppingToken);
     }
 }

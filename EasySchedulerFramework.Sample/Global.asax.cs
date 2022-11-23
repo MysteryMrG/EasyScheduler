@@ -18,7 +18,7 @@ namespace EasySchedulerFramework.Sample
             var services = new ServiceCollection();
             services.AddScheduler(x =>
             {
-
+                x.UseSqlServer("2222");
             });
         }
 

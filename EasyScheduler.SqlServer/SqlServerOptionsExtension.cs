@@ -1,7 +1,6 @@
-﻿using EasyScheduler.Core.Ioc;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using EasyScheduler.Interface;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyScheduler.SqlServer
 {
@@ -15,7 +14,20 @@ namespace EasyScheduler.SqlServer
         }
         public void AddServices(IServiceCollection services)
         {
-            throw new NotImplementedException();
+            services.AddSingleton<IStorage, SqlServerStorage>();
+
+            //Startup and Middleware
+            services.AddTransient<IBootstrapper, SqlServerBootstrapper>();
+
+            AddSqlServerOptions(services);
+        }
+        private void AddSqlServerOptions(IServiceCollection services)
+        {
+            var sqlServerOptions = new SqlServerOptions();
+
+            _configure(sqlServerOptions);
+
+            services.AddSingleton(sqlServerOptions);
         }
     }
 }

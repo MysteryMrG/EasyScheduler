@@ -21,7 +21,7 @@ namespace EasySchedulerNetCore.Sample
             services.AddControllers();
             services.AddScheduler(x =>
             {
-                
+                x.UseSqlServer("1111111");
             });
         }
 

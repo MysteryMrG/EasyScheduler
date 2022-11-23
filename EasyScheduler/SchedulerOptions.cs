@@ -27,7 +27,7 @@ namespace EasyScheduler
 
         public SchedulerOptions()
         {
-
+            Extensions = new List<IOptionsExtension>();
         }
 
         internal IList<IOptionsExtension> Extensions { get; }

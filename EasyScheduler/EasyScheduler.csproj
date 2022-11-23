@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Core\" />
     <Folder Include="Models\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Internal\" />
     <Folder Include="Diagnostics\" />
+    <Folder Include="Service\" />
   </ItemGroup>
 
   <ItemGroup>

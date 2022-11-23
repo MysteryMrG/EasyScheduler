@@ -4,7 +4,7 @@ using System;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static partial class OptionsExtensions
+    public static class OptionsExtensions
     {
         public static SchedulerOptions UseSqlServer(this SchedulerOptions options, string connectionString)
         {

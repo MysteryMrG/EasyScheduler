@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading;
 using EasyScheduler;
+using EasyScheduler.Processor;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -16,6 +19,19 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 throw new ArgumentNullException(nameof(actions));
             }
+            services.TryAddEnumerable(ServiceDescriptor.Singleton<IProcessingServer, ProcessingServer>());
+
+            var options = new SchedulerOptions();
+            actions(options);
+            foreach (var serviceExtension in options.Extensions)
+            {
+                serviceExtension.AddServices(services);
+            }
+            services.AddSingleton(options);
+
+
+            //Bootstrap
+            services.BuildServiceProvider().GetService<IBootstrapper>().BootstrapAsync(new CancellationToken());
 
         }
     }

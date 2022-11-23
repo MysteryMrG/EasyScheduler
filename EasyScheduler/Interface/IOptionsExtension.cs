@@ -1,4 +1,4 @@
-﻿using EasyScheduler.Core.Ioc;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyScheduler
 {
