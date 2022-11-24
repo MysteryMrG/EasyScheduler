@@ -1,5 +1,6 @@
 ﻿using System;
 using EasyScheduler.Interface;
+using EasyScheduler.Processor;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyScheduler.SqlServer
@@ -18,6 +19,9 @@ namespace EasyScheduler.SqlServer
 
             //Startup and Middleware
             services.AddTransient<IBootstrapper, SqlServerBootstrapper>();
+
+
+            services.AddTransient<ICollectProcessor, SqlServerCollectProcessor>();
 
             AddSqlServerOptions(services);
         }

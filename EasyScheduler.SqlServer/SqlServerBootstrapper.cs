@@ -28,7 +28,7 @@ namespace EasyScheduler.SqlServer
             {
                 await Storage.InitializeAsync(stoppingToken);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // ignored
             }
@@ -58,7 +58,7 @@ namespace EasyScheduler.SqlServer
                 {
                     item.Start();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     // ignored
                 }
