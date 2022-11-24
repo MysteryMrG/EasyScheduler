@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -15,10 +16,11 @@ namespace EasySchedulerFramework.Sample
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            string connstr = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
             var services = new ServiceCollection();
             services.AddScheduler(x =>
             {
-                x.UseSqlServer("2222");
+                x.UseSqlServer(connstr);
             });
         }
 

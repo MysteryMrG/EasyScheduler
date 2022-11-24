@@ -18,10 +18,11 @@ namespace EasySchedulerNetCore.Sample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var conn = ConfigHelper.GetConnectionString("DefaultString");
             services.AddControllers();
             services.AddScheduler(x =>
             {
-                x.UseSqlServer("1111111");
+                x.UseSqlServer(conn);
             });
         }
 

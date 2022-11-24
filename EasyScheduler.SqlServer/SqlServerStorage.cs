@@ -52,80 +52,27 @@ BEGIN
 	EXEC('CREATE SCHEMA [{schema}]')
 END;
 
-IF OBJECT_ID(N'[{schema}].[Received]',N'U') IS NULL
+IF OBJECT_ID(N'[{schema}].[SchedulerJob]',N'U') IS NULL
 BEGIN
-CREATE TABLE [{schema}].[Received](
+CREATE TABLE [{schema}].[SchedulerJob](
 	[Id] [bigint] NOT NULL,
-    [Version] [nvarchar](20) NOT NULL,
+	[JobId] [nvarchar](200) NOT NULL,
 	[Name] [nvarchar](200) NOT NULL,
-	[Group] [nvarchar](200) NULL,
-	[Content] [nvarchar](max) NULL,
-	[Retries] [int] NOT NULL,
-	[Added] [datetime2](7) NOT NULL,
-    [ExpiresAt] [datetime2](7) NULL,
-	[StatusName] [nvarchar](50) NOT NULL,
- CONSTRAINT [PK_{schema}.Received] PRIMARY KEY CLUSTERED
+	[Description] [nvarchar](500) NULL,
+	[JobType] [int] NOT NULL,
+	[Interval] [int] NOT NULL,
+	[Parameter] [nvarchar](1200) NULL,	
+	[StartTime] [datetime] NOT NULL,
+	[EndTime] [datetime]  NULL,
+	[InUse] [int] NOT NULL,
+ CONSTRAINT [PK_{schema}.SchedulerJob] PRIMARY KEY CLUSTERED
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+) ON [PRIMARY] 
 END;
 
-IF OBJECT_ID(N'[{schema}].[Published]',N'U') IS NULL
-BEGIN
-CREATE TABLE [{schema}].[Published](
-	[Id] [bigint] NOT NULL,
-    [Version] [nvarchar](20) NOT NULL,
-	[Name] [nvarchar](200) NOT NULL,
-	[Content] [nvarchar](max) NULL,
-	[Retries] [int] NOT NULL,
-	[Added] [datetime2](7) NOT NULL,
-    [ExpiresAt] [datetime2](7) NULL,
-	[StatusName] [nvarchar](50) NOT NULL,
- CONSTRAINT [PK_{schema}.Published] PRIMARY KEY CLUSTERED
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END;
-
-
-IF OBJECT_ID(N'[{schema}].[ReceivedHis]',N'U') IS NULL
-BEGIN
-CREATE TABLE [{schema}].[ReceivedHis](
-	[Id] [bigint] NOT NULL,
-    [Version] [nvarchar](20) NOT NULL,
-	[Name] [nvarchar](200) NOT NULL,
-	[Group] [nvarchar](200) NULL,
-	[Content] [nvarchar](max) NULL,
-	[Retries] [int] NOT NULL,
-	[Added] [datetime2](7) NOT NULL,
-    [ExpiresAt] [datetime2](7) NULL,
-	[StatusName] [nvarchar](50) NOT NULL,
- CONSTRAINT [PK_{schema}.ReceivedHis] PRIMARY KEY CLUSTERED
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END;
-
-IF OBJECT_ID(N'[{schema}].[PublishedHis]',N'U') IS NULL
-BEGIN
-CREATE TABLE [{schema}].[PublishedHis](
-	[Id] [bigint] NOT NULL,
-    [Version] [nvarchar](20) NOT NULL,
-	[Name] [nvarchar](200) NOT NULL,
-	[Content] [nvarchar](max) NULL,
-	[Retries] [int] NOT NULL,
-	[Added] [datetime2](7) NOT NULL,
-    [ExpiresAt] [datetime2](7) NULL,
-	[StatusName] [nvarchar](50) NOT NULL,
- CONSTRAINT [PK_{schema}.PublishedHis] PRIMARY KEY CLUSTERED
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END;"
+"
 
                 ;
             return batchSql;
