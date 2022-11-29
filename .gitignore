@@ -19,3 +19,5 @@
 /EasyScheduler.InMemory/bin
 /EasyScheduler.MySql/bin
 /EasyScheduler.Redis/bin
+/EasyScheduler.RabbitMQ/bin
+/EasyScheduler.RabbitMQ/obj
