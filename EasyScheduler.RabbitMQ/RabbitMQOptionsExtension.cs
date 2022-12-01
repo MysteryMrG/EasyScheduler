@@ -1,4 +1,5 @@
 ﻿using System;
+using EasyScheduler.Interface;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyScheduler.RabbitMQ
@@ -14,14 +15,12 @@ namespace EasyScheduler.RabbitMQ
 
         public void AddServices(IServiceCollection services)
         {
-            //services.AddSingleton<CapMessageQueueMakerService>();
-
             var options = new RabbitMQOptions();
             _configure?.Invoke(options);
             services.AddSingleton(options);
 
-            //services.AddSingleton<IConsumerClientFactory, RabbitMQConsumerClientFactory>();
-            //services.AddSingleton<IConnectionChannelPool, ConnectionChannelPool>();
+            services.AddSingleton<IConsumerClientFactory, RabbitMQConsumerClientFactory>();
+            services.AddSingleton<IConnectionChannelPool, ConnectionChannelPool>();
             //services.AddSingleton<IPublishExecutor, RabbitMQPublishMessageSender>();
             //services.AddSingleton<IPublishMessageSender, RabbitMQPublishMessageSender>();
         }
