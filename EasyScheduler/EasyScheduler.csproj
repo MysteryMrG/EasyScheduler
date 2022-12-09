@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="Infrastructure\" />
     <Folder Include="Internal\" />
     <Folder Include="Diagnostics\" />
     <Folder Include="Service\" />
@@ -15,6 +14,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
 </Project>
